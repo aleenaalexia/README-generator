@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   let licenseBadge = '';
@@ -9,9 +9,28 @@ function renderLicenseBadge(license) {
   else if (license == 'Boost') {
     licenseBadge = '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)]';
   }
+  else if (license == 'BSD') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)]';
+  }
+  else if (license == 'Eclipse') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)]';
+  }
+  else if (license == 'GNU') {
+    licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]';
+  }
+  else if (license == 'IBM') {
+    licenseBadge = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)]';
+  }
+  else if (license == 'ISC') {
+    licenseBadge = '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)]';
+  }
+  else if (license == 'MIT') {
+    licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]';
+  }
+  return licenseBadge;
 }
 
-// TODO: Create a function that returns the license link
+// function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   let licenseLink;
@@ -45,15 +64,53 @@ function renderLicenseLink(license) {
   return licenseLink;
 }
 
-// TODO: Create a function that returns the license section of README
+// function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  let renderLicense = '';
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
+  if (license != null) {
+    renderLicense += "## License"
+    renderLicense += "Additional License Information: " + renderLicenseLink(license);
+  }
+  return renderLicense;
 }
 
-module.exports = generateMarkdown;
+// function to generate markdown for README
+function genMarkdown(data) {
+  return `# ${data.title}
+  
+  ## Table of Contents
+     1. [Description](#description)
+     2. [Installation](#installation)
+     3. [Usage](#usage)
+     4. [License](#license)
+     5. [Credits](#credits)
+     6. [Tests](#tests)
+     7. [Questions](#questions)
+  
+  ## Description
+  ${data.description}
+
+  ## Installation
+  ${data.installation}
+
+  ## Usage
+  ${data.usage}
+
+  ## License
+  ${renderLicenseSection(data)}
+  ${renderLicenseBadge(data)}
+
+  ## Credits
+  ${data.credits}
+  
+  ## Tests
+  ${data.tests}
+
+  ## Questions
+  ${data.questions}
+  `;
+}
+
+module.exports = { genMarkdown };
