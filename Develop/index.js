@@ -2,13 +2,13 @@
 // Function to initialize app
 function init() {
 
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const markdown = require('./utils/generateMarkdown');
 const path = require('path');
 
-// TODO: Create an array of questions for user input
+// array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -46,15 +46,16 @@ const questions = [
 ];
 
 writeToFile();
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile() {
     return inquirer.prompt(questions)
        .then((data => {
            const genMarkdown = markdown.genMarkdown(data);
            console.log(genMarkdown);
            return data; 
+       
        }));
-
+ 
 }
 }
 
