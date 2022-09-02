@@ -4,12 +4,16 @@
   "description": "README-gen",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Aleena Johns",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^8.2.4"
+    "browserify-fs": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.4",
+    "util": "^0.12.4"
   },
   "repository": {
     "type": "git",

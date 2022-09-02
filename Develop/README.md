@@ -1,8 +1,7 @@
-function markdown(data) {
-  return `# ${data.title}
+# Read-ME Generator
   
   ## Description 
-  ${data.description}
+  This project is designed to generate a professional looking README
 
   ## Table of Contents
   * [Installation](#installation)
@@ -13,23 +12,19 @@ function markdown(data) {
   * [Questions](#questions)
   
   ## Installation 
-  ${data.installation
-  }
+  npm install
   ## Usage 
-  ${data.usage}
+  npm start
 
   ## License 
-  This project is licensed under: ${data.license}
+  This project is licensed under: MIT
 
   ## Credits 
-  ${data.credits}
+  Aleena Johns
 
   ## Tests
-  ${data.tests}
+  None
 
   ## Questions
-  ${data.questions}
-  `;
-}
-
-module.exports = markdown; 
+  Email Me at: aleenajohns31@gmail.com
+  
